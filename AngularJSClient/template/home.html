@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Actions</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prix</th>
+                            <th scope="col">Acheter</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="action in actions">
+                            <td>{{action.nom}}</td>
+                            <td>{{action.prix}}</td>
+                            <td>
+                                <button class="btn btn-primary" ng-click="buy(action)">Acheter</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Cagnote</h3>
+            </div>
+            <div class="panel-body">
+                <canvas id="line" class="chart chart-line" chart-data="data"
+                    chart-labels="labels" chart-series="series" chart-options="options"
+                    chart-dataset-override="datasetOverride" chart-click="onClick">
+                </canvas>                    
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Portfolio</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prix</th>
+                            <th scope="col">Quantité</th>
+                            <th scope="col">Détail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="p in portfolio">
+                            <td>{{p.action.nom}}</td>
+                            <td>{{p.action.prix}}</td>                        
+                            <td>{{p.quantite}}</td>
+                            <td>
+                                <button class="btn btn-primary" ng-click="showDetail(p)">Detail</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Detail</h3>
+            </div>
+            <div class="panel-body">                
+                <ul>
+                    <li>nom : {{detail.action.nom}}</li>
+                    <li>symbol : {{detail.action.symbol}}</li>
+                    <li>prix : {{detail.action.prix}}</li>
+                    <li>quantite : {{detail.quantite}}</li>                    
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
